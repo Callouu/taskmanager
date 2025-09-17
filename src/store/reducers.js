@@ -36,7 +36,6 @@ function boardReducer(state = {
   }
 }, action) {
   switch (action.type) {
-    // ...copier ici tous les case précédents...
     case 'ADD_CARD': {
       const { columnId, content } = action.payload;
       const newCardId = `card-${Date.now()}`;
@@ -118,7 +117,6 @@ function boardReducer(state = {
     case 'REMOVE_COLUMN': {
       const { columnId } = action.payload;
       const column = state.columns.find(col => col.id === columnId);
-      // Also remove all cards in this column
       const cardsToRemove = column.cardIds;
       const remainingCards = Object.fromEntries(
         Object.entries(state.cards).filter(([id]) => !cardsToRemove.includes(id))
