@@ -1,6 +1,7 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Header from "./layouts/Header/Header";
+import Footer from "./layouts/Footer/Footer";
 import Home from "./pages/Home/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
