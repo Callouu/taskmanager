@@ -6,9 +6,9 @@ function Home() {
     <main className="home">
       <section className="hero">
         <div className="hero__content">
-          <h1 className="hero__title">Your task manager locally</h1>
+          <h1 className="hero__title">Your task manager</h1>
           <p className="hero__subtitle">
-            Fast and easy way to manage your tasks without any account.
+            Fast and easy way to manage your tasks.
           </p>
           <div className="hero__buttons">
             <button className="primary-button">Get Started</button>
