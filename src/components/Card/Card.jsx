@@ -7,9 +7,10 @@ const Card = ({ card, columnId }) => {
   const dispatch = useDispatch();
   
   const handleEdit = (e) => {
-    const newContent = prompt('Edit card content:', card.content);
-    if (newContent !== null) {
-      dispatch(editCard(card.id, newContent));
+    const newTitle = prompt('Edit card title:', card.title);
+    const newDescription = prompt('Edit card description:', card.description);
+    if (newTitle !== null) {
+      dispatch(editCard(card.id, newTitle, newDescription));
     }
   };
 
@@ -22,7 +23,10 @@ const Card = ({ card, columnId }) => {
   return (
     <div className="card">
       <div className="card-content" onClick={handleEdit}>
-        {card.content}
+        <div className="card-title">{card.title}</div>
+        {card.description && (
+          <div className="card-description">{card.description}</div>
+        )}
       </div>
       <button className="delete-btn" onClick={handleDelete}>
         ×

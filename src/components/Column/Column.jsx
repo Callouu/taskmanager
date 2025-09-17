@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addCard, editColumn, removeColumn } from '../../store/actions';
-import Card from '../Card/Card';
-import './Column.scss';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCard, editColumn, removeColumn } from "../../store/actions";
+import Card from "../Card/Card";
+import CardModal from "../CardModal/CardModal";
+import "./Column.scss";
 
 const Column = ({ column, cards }) => {
   const dispatch = useDispatch();
-  const [newCardContent, setNewCardContent] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddCard = () => {
-    if (newCardContent.trim()) {
-      dispatch(addCard(column.id, newCardContent));
-      setNewCardContent('');
-    }
+  const handleAddCard = (title, description) => {
+    dispatch(addCard(column.id, title, description));
   };
 
   const handleEditTitle = () => {
-    const newTitle = prompt('Edit column title:', column.title);
+    const newTitle = prompt("Edit column title:", column.title);
     if (newTitle !== null) {
       dispatch(editColumn(column.id, newTitle));
     }
   };
 
   const handleDeleteColumn = () => {
-    if (window.confirm('Delete this column and all its cards?')) {
+    if (window.confirm("Delete this column and all its cards?")) {
       dispatch(removeColumn(column.id));
     }
   };
@@ -32,29 +30,33 @@ const Column = ({ column, cards }) => {
     <div className="column">
       <div className="column-header">
         <h3 onClick={handleEditTitle}>{column.title}</h3>
+        <div className="column-header--button">
+        <div className="add-card">
+          <button onClick={() => setIsModalOpen(true)}>+</button>
+        </div>
         <button className="delete-btn" onClick={handleDeleteColumn}>
           ×
         </button>
+        </div>
       </div>
       {column.description && (
-        <div className="column-description" style={{ color: "#555", fontSize: "0.97rem", marginBottom: 10 }}>
+        <div
+          className="column-description"
+          style={{ color: "#555", fontSize: "0.97rem", marginBottom: 10 }}
+        >
           {column.description}
         </div>
       )}
       <div className="cards-list">
-        {column.cardIds.map(cardId => (
+        {column.cardIds.map((cardId) => (
           <Card key={cardId} card={cards[cardId]} columnId={column.id} />
         ))}
       </div>
-      <div className="add-card">
-        <input
-          type="text"
-          value={newCardContent}
-          onChange={(e) => setNewCardContent(e.target.value)}
-          placeholder="Add a card..."
-        />
-        <button onClick={handleAddCard}>Add</button>
-      </div>
+      <CardModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAddCard={handleAddCard}
+      />
     </div>
   );
 };

@@ -20,6 +20,13 @@
     justify-content: space-between;
     margin-bottom: 12px;
 
+        &--button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+    }
+
     h3 {
       font-size: 1.15rem;
       font-weight: 600;
@@ -31,18 +38,18 @@
         color: #1976d2;
       }
     }
-
     .delete-btn {
-      background: none;
+      background: #ac0142;
+      color: #fff;
       border: none;
-      color: #b71c1c;
-      font-size: 1.3rem;
+      border-radius: 8px;
+      padding: 7px 16px;
+      font-size: 1rem;
+      font-weight: 500;
       cursor: pointer;
-      padding: 0 6px;
-      border-radius: 50%;
       transition: background 0.15s;
       &:hover {
-        background: #ffeaea;
+        background: #940039;
       }
     }
   }
@@ -57,7 +64,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-top: 8px;
+    // margin-top: 8px;
 
     input {
       flex: 1;
@@ -75,7 +82,7 @@
     }
 
     button {
-      background: #6a11cb;
+      background: #8616fd;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -85,7 +92,7 @@
       cursor: pointer;
       transition: background 0.15s;
       &:hover {
-        background: #1565c0;
+        background: #570fa5;
       }
     }
   }
