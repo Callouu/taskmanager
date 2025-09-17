@@ -8,9 +8,9 @@ export const REMOVE_COLUMN = 'REMOVE_COLUMN';
 export const EDIT_COLUMN = 'EDIT_COLUMN';
 
 // Action Creators
-export const addCard = (columnId, content) => ({
+export const addCard = (columnId, title, description = "") => ({
   type: ADD_CARD,
-  payload: { columnId, content }
+  payload: { columnId, title, description }
 });
 
 export const removeCard = (cardId) => ({
@@ -23,9 +23,9 @@ export const moveCard = (sourceColId, destColId, cardId, index) => ({
   payload: { sourceColId, destColId, cardId, index }
 });
 
-export const editCard = (cardId, content) => ({
+export const editCard = (cardId, title, description = "") => ({
   type: EDIT_CARD,
-  payload: { cardId, content }
+  payload: { cardId, title, description }
 });
 
 export const addColumn = (title, description = "") => ({

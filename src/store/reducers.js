@@ -23,21 +23,24 @@ function boardReducer(state = {
   cards: {
     'card-1': {
       id: 'card-1',
-      content: 'Task 1'
+      title: 'Task 1',
+      description: 'Test'
     },
     'card-2': {
       id: 'card-2',
-      content: 'Task 2'
+      title: 'Task 2',
+      description: ''
     },
     'card-3': {
       id: 'card-3',
-      content: 'Task 3'
+      title: 'Task 3',
+      description: ''
     }
   }
 }, action) {
   switch (action.type) {
     case 'ADD_CARD': {
-      const { columnId, content } = action.payload;
+      const { columnId, title, description } = action.payload;
       const newCardId = `card-${Date.now()}`;
       return {
         ...state,
@@ -50,7 +53,8 @@ function boardReducer(state = {
           ...state.cards,
           [newCardId]: {
             id: newCardId,
-            content
+            title,
+            description
           }
         }
       };
@@ -87,20 +91,21 @@ function boardReducer(state = {
       };
     }
     case 'EDIT_CARD': {
-      const { cardId, content } = action.payload;
+      const { cardId, title, description } = action.payload;
       return {
         ...state,
         cards: {
           ...state.cards,
           [cardId]: {
             ...state.cards[cardId],
-            content
+            title,
+            description
           }
         }
       };
     }
     case 'ADD_COLUMN': {
-      const { title } = action.payload;
+      const { title, description } = action.payload;
       const newColId = `col-${Date.now()}`;
       return {
         ...state,
@@ -109,6 +114,7 @@ function boardReducer(state = {
           {
             id: newColId,
             title,
+            description,
             cardIds: []
           }
         ]
