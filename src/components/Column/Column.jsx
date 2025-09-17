@@ -36,6 +36,11 @@ const Column = ({ column, cards }) => {
           ×
         </button>
       </div>
+      {column.description && (
+        <div className="column-description" style={{ color: "#555", fontSize: "0.97rem", marginBottom: 10 }}>
+          {column.description}
+        </div>
+      )}
       <div className="cards-list">
         {column.cardIds.map(cardId => (
           <Card key={cardId} card={cards[cardId]} columnId={column.id} />
