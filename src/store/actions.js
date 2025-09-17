@@ -28,9 +28,9 @@ export const editCard = (cardId, content) => ({
   payload: { cardId, content }
 });
 
-export const addColumn = (title) => ({
+export const addColumn = (title, description = "") => ({
   type: ADD_COLUMN,
-  payload: { title }
+  payload: { title, description }
 });
 
 export const removeColumn = (columnId) => ({
