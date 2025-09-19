@@ -1,16 +1,26 @@
 import './Header.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <header className="header">
       <div className="header__container">
         <div className="header__logo">
-          <span>YourTaskManager</span>
+          <Link to="/">
+            <span>YourTaskManager</span>
+          </Link>
         </div>
         
-        <nav className="header__nav">
+        <div className="header__menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
         </nav>
