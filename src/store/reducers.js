@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import tasksReducer from './tasksSlice';
 
-// L'ancien reducer pour columns et cards
 function boardReducer(state = {
   columns: [
     {
@@ -24,17 +23,20 @@ function boardReducer(state = {
     'card-1': {
       id: 'card-1',
       title: 'Task 1',
-      description: 'Test'
+      description: 'Test',
+      createdAt: '2025-09-19T09:17:00.000Z'
     },
     'card-2': {
       id: 'card-2',
       title: 'Task 2',
-      description: ''
+      description: '',
+      createdAt: '2025-09-19T09:17:00.000Z'
     },
     'card-3': {
       id: 'card-3',
       title: 'Task 3',
-      description: ''
+      description: '',
+      createdAt: '2025-09-19T09:17:00.000Z'
     }
   }
 }, action) {
@@ -54,7 +56,8 @@ function boardReducer(state = {
           [newCardId]: {
             id: newCardId,
             title,
-            description
+            description,
+            createdAt: new Date().toISOString()
           }
         }
       };
