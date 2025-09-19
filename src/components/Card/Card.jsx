@@ -16,6 +16,11 @@ const Card = ({ card, columnId }) => {
     setIsModalOpen(false);
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString() + " at " + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
   return (
     <>
       <div className="card">
@@ -23,6 +28,9 @@ const Card = ({ card, columnId }) => {
           <div className="card-title">{card.title}</div>
           {card.description && (
             <div className="card-description">{card.description}</div>
+          )}
+          {card.createdAt && (
+            <div className="card-date">{formatDate(card.createdAt)}</div>
           )}
         </div>
       </div>
