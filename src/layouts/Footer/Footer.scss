@@ -1,15 +1,26 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #000000;
-    height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 60px;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 
-    &__title {
-        font-size: 1rem;
-        color: #ffffff;
-        padding: 1% 0%;
-        text-align: center;
+  &__title {
+    font-size: 1rem;
+    color: #a0a0a0;
+    text-align: center;
+    
+    a {
+      color: #5c6bc0;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #26c6da;
+        text-decoration: underline;
+      }
     }
+  }
 }
