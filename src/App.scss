@@ -33,21 +33,3 @@ button {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
-// Scrollbar styling
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(30, 30, 0.5);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 10%);
-}
