@@ -25,7 +25,14 @@ const Card = ({ card, columnId }) => {
     <>
       <div className="card">
         <div className="card-content" onClick={openModal}>
-          <div className="card-title">{card.title}</div>
+          <div className="card-header">
+            <div className="card-title">{card.title}</div>
+            {card.priority && (
+              <div className={`card-priority ${card.priority}`}>
+                {card.priority.toUpperCase()}
+              </div>
+            )}
+          </div>
           {card.description && (
             <div className="card-description">{card.description}</div>
           )}

@@ -61,6 +61,25 @@
       }
     }
   }
+  
+  .card-priority {
+    .priority-value {
+      font-weight: bold;
+      margin-left: 8px;
+      
+      &.high {
+        color: #ff4d4f;
+      }
+      
+      &.medium {
+        color: #faad14;
+      }
+      
+      &.low {
+        color: #52c41a;
+      }
+    }
+  }
 
   .card-meta {
     display: flex;

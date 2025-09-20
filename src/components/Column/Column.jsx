@@ -9,8 +9,8 @@ const Column = ({ column, cards }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddCard = (title, description) => {
-    dispatch(addCard(column.id, title, description));
+  const handleAddCard = (title, description, priority) => {
+    dispatch(addCard(column.id, title, description, priority));
   };
 
   const handleEditTitle = () => {

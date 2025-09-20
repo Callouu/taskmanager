@@ -5,10 +5,11 @@ import "./CardModal.scss";
 function CardModal({ open, onClose, onAddCard }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("medium");
 
   const handleAdd = () => {
     if (title.trim()) {
-      onAddCard(title, description);
+      onAddCard(title, description, priority);
       setTitle("");
       setDescription("");
       onClose();
@@ -18,6 +19,7 @@ function CardModal({ open, onClose, onAddCard }) {
   const handleCancel = () => {
     setTitle("");
     setDescription("");
+    setPriority("medium");
     onClose();
   };
 
@@ -47,6 +49,18 @@ function CardModal({ open, onClose, onAddCard }) {
         style={{ width: "100%", marginBottom: 12, minHeight: 80 }}
         onKeyPress={handleKeyPress}
       />
+      <div style={{ marginBottom: 12 }}>
+        <label style={{ display: "block", marginBottom: 4 }}>Priority: </label>
+        <select 
+          value={priority} 
+          onChange={(e) => setPriority(e.target.value)}
+          style={{ width: "100%", padding: "8px", borderRadius: 4 }}
+        >
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
       <div style={{ display: "flex", gap: 8 }}>
         <button onClick={handleAdd}>Add Card</button>
         <button onClick={handleCancel} type="button">Cancel</button>

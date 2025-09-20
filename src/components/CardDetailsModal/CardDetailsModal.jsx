@@ -11,6 +11,7 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(card?.title || "");
   const [description, setDescription] = useState(card?.description || "");
+  const [priority, setPriority] = useState(card?.priority || "medium");
   
   if (!card) return null;
 
@@ -22,7 +23,7 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
   
   // Handle save changes
   const handleSave = () => {
-    dispatch(editCard(card.id, title, description));
+    dispatch(editCard(card.id, title, description, priority));
     setIsEditing(false);
   };
   
@@ -30,6 +31,7 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
   const handleCancel = () => {
     setTitle(card.title);
     setDescription(card.description);
+    setPriority(card.priority || "medium");
     setIsEditing(false);
   };
   
@@ -46,6 +48,7 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
     if (card) {
       setTitle(card.title);
       setDescription(card.description);
+      setPriority(card.priority || "medium");
     }
   }, [card]);
 
@@ -67,6 +70,18 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
               className="card-description-input"
               placeholder="Card description"
             />
+            <div style={{ marginBottom: 12 }}>
+              <label style={{ display: "block", marginBottom: 4 }}>Priority:</label>
+              <select
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                style={{ width: "100%", padding: "8px", borderRadius: 4 }}
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
             <div className="card-modal-actions">
               <button onClick={handleSave} className="save-btn">Save</button>
               <button onClick={handleCancel} className="cancel-btn">Cancel</button>
@@ -85,6 +100,12 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
                 )}
               </div>
             )}
+            <div className="card-priority" style={{ marginBottom: 12 }}>
+              <strong>Priority:</strong>
+              <span className={`priority-value ${card.priority}`}>
+                {card.priority?.charAt(0).toUpperCase() + card.priority?.slice(1)}
+              </span>
+            </div>
             <div className="card-meta">
               <span className="card-date">Created: {formatDate(card.createdAt)}</span>
             </div>
