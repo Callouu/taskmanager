@@ -17,9 +17,11 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
 
   // Format the date for display
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString() + " at " + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  };
+  if (!dateString) return "Unknown";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "Unknown";
+  return date.toLocaleDateString() + " at " + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+};
   
   // Handle save changes
   const handleSave = () => {
@@ -90,7 +92,6 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
         ) : (
           <>
             <h2>{card.title}</h2>
-            {/* Display description if it exists (including empty strings) */}
             {(card.description || card.description === '') && (
               <div className="card-description">
                 {card.description ? (
@@ -103,7 +104,9 @@ function CardDetailsModal({ open, onClose, card, columnId }) {
             <div className="card-priority" style={{ marginBottom: 12 }}>
               <strong>Priority:</strong>
               <span className={`priority-value ${card.priority}`}>
-                {card.priority?.charAt(0).toUpperCase() + card.priority?.slice(1)}
+                {card.priority ?
+                card.priority?.charAt(0).toUpperCase() + card.priority?.slice(1) 
+                : "Medium"}
               </span>
             </div>
             <div className="card-meta">

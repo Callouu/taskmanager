@@ -1,46 +1,43 @@
 .card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  box-shadow: 0 1px 0 rgba(9,30,66,.25);
   padding: 12px 10px;
   margin-bottom: 10px;
   font-size: 1rem;
-  color: #172b4d;
+  color: #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: box-shadow 0.18s, transform 0.12s;
   cursor: pointer;
   position: relative;
+  border: 1px solid #383838;
 
   &:hover {
-    box-shadow: 0 4px 8px rgba(9,30,66,.18);
-    background: #dddddd;
-    // transform: translateY(-1px) scale(1.01);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   .card-content {
     flex: 1;
     word-break: break-word;
     padding-right: 10px;
-    color: #172b4d;
+    color: #e0e0e0;
     
     .card-header {
       display: flex;
-      justify-content: space-between;
+      gap: 8px;
       align-items: center;
       margin-bottom: 4px;
     }
     
     .card-title {
       font-size: 1rem;
-      font-weight: 500;
-      flex: 1;
+      font-weight: 600;
     }
     
     .card-priority {
       flex-shrink: 0;
       font-size: 0.5rem;
+      font-weight: 700;
       letter-spacing: 0.1rem;
       text-align: center;
       padding: 2px 6px;
@@ -52,23 +49,23 @@
       }
       
       &.medium {
-        background-color: #faad14;
+        background-color: #e29d12;
       }
       
       &.low {
-        background-color: #52c41a;
+        background-color: #46a517;
       }
     }
     
     .card-description {
       font-size: 0.85rem;
-      color: #5e6c84;
+      color: #b0b0b0;
       line-height: 1.4;
     }
 
     .card-date {
       font-size: 0.75rem;
-      color: #888;
+      color: #999;
       margin-top: 6px;
     }
   }
@@ -76,7 +73,7 @@
   .delete-btn {
     background: none;
     border: none;
-    color: #b71c1c;
+    color: #ff6b6b;
     font-size: 1.1rem;
     cursor: pointer;
     padding: 0 4px;
@@ -84,7 +81,7 @@
     transition: background 0.13s;
 
     &:hover {
-      background: #ffeaea;
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 }
