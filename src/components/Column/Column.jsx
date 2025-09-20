@@ -29,7 +29,10 @@ const Column = ({ column, cards }) => {
   return (
     <div className="column">
       <div className="column-header">
+        <div className="column-header--title">
         <h3 onClick={handleEditTitle}>{column.title}</h3>
+        <p>({column.cardIds.length})</p>
+        </div>
         <div className="column-header--button">
         <div className="add-card">
           <button onClick={() => setIsModalOpen(true)}>+</button>

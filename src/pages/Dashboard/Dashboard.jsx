@@ -28,9 +28,11 @@ function Dashboard() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="board">
+        <div className="board-title">
         <h1>My Dashboard</h1>
         <div className="add-column">
-          <button onClick={() => setModalOpen(true)}>Add Column</button>
+          <button onClick={() => setModalOpen(true)}>+ Add Column</button>
+        </div>
         </div>
         <div className="columns-container">
           {columns.map((column) => (
