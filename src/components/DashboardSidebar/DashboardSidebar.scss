@@ -1,0 +1,155 @@
+.dashboard-sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  height: calc(100vh - 120px); // Adjust based on header/footer height
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-sizing: border-box;
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .create-dashboard-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .create-dashboard-form {
+    margin-bottom: 16px;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 8px;
+
+      button {
+        flex: 1;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:first-child {
+          background-color: #28a745;
+          color: white;
+
+          &:hover {
+            background-color: #218838;
+          }
+        }
+
+        &:last-child {
+          background-color: #6c757d;
+          color: white;
+
+          &:hover {
+            background-color: #5a6268;
+          }
+        }
+      }
+    }
+  }
+
+  .dashboard-list {
+    flex: 1;
+    overflow-y: auto;
+
+    .dashboard-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      margin-bottom: 8px;
+      background-color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      &.selected {
+        background-color: #007bff;
+        color: white;
+
+        .dashboard-name {
+          color: white;
+        }
+
+        .dashboard-actions {
+          button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.3);
+            }
+          }
+        }
+      }
+
+      .dashboard-info {
+        flex: 1;
+
+        .dashboard-name {
+          font-weight: 500;
+          color: #333;
+        }
+      }
+
+      .dashboard-actions {
+        display: flex;
+        gap: 4px;
+
+        button {
+          padding: 4px 8px;
+          font-size: 12px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          background-color: #f1f1f1;
+          color: #333;
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
+        }
+      }
+    }
+  }
+}
