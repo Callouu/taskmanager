@@ -6,12 +6,13 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { addColumn, addDashboard, removeDashboard, editDashboard, selectDashboard } from "../../store/actions";
 import Modal from "../../components/Modal/Modal";
 import Column from "../../components/Column/Column";
-import DashboardSidebar from "../../components/DashboardSidebar/DashboardSidebar";
+import DashboardSidebar from "../../layouts/Sidebar/Sidebar";
 import "./Dashboard.scss";
 
 function Dashboard() {
   const dispatch = useDispatch();
   const { dashboardId } = useParams();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const columns = useSelector((state) => {
     try {
       const selectedDashboardId = state.dashboards.selectedDashboardId;
@@ -82,6 +83,10 @@ function Dashboard() {
     dispatch(selectDashboard(id));
   };
 
+  const handleToggleSidebar = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
+
   const selectedDashboard = dashboards.find(d => d.id === selectedDashboardId) || dashboards[0];
 
   // Update selected dashboard when URL changes
@@ -103,7 +108,7 @@ function Dashboard() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="board">
-        <div style={{ display: 'flex', height: 'calc(100vh - 64px)' }}>
+        <div style={{ display: 'flex'}}>
           <DashboardSidebar
             dashboards={dashboards}
             onCreateDashboard={handleCreateDashboard}
@@ -111,8 +116,10 @@ function Dashboard() {
             onEditDashboard={handleEditDashboard}
             onSelectDashboard={handleSelectDashboard}
             selectedDashboardId={selectedDashboardId}
+            isCollapsed={isSidebarCollapsed}
+            onToggleCollapse={handleToggleSidebar}
           />
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <div className={`main-content ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div className="board-title">
               <h1>{selectedDashboard ? selectedDashboard.name : "My Dashboard"}</h1>
               <div className="add-column">
