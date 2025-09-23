@@ -33,6 +33,10 @@
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
+
+    .material-icons {
+      font-size: 18px;
+    }
   }
 
   .sidebar-header {
@@ -40,6 +44,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 26px 0px;
+
+    .material-icons {
+      font-size: 20px;
+    }
 
     h2 {
       margin: 0;
@@ -51,8 +59,8 @@
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 4px;
-      padding: 6px 12px;
+      border-radius: 8px;
+      padding: 6px 16px;
       cursor: pointer;
       font-size: 14px;
 
@@ -172,9 +180,16 @@
           cursor: pointer;
           background-color: #f1f1f1;
           color: #333;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &:hover {
             background-color: #e0e0e0;
+          }
+
+          .material-icons {
+            font-size: 16px;
           }
         }
       }

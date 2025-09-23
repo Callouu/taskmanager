@@ -15,9 +15,7 @@ function Header() {
         </div>
         
         <div className="header__menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="material-icons">menu</span>
         </div>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>

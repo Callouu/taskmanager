@@ -123,7 +123,10 @@ function Dashboard() {
             <div className="board-title">
               <h1>{selectedDashboard ? selectedDashboard.name : "My Dashboard"}</h1>
               <div className="add-column">
-                <button onClick={() => setModalOpen(true)}>+ Add Column</button>
+                <button onClick={() => setModalOpen(true)}>
+                  <span className="material-icons">add</span>
+                  Add Column
+                </button>
               </div>
             </div>
             <div className="columns-container">

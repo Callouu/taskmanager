@@ -32,7 +32,11 @@ function DashboardSidebar({
   return (
     <div className={`dashboard-sidebar ${isCollapsed ? "collapsed" : ""}`}>
       <button className="toggle-sidebar-btn" onClick={onToggleCollapse}>
-        {isCollapsed ? "▸" : "◂"}
+        {isCollapsed ? (
+          <span className="material-icons">chevron_right</span>
+        ) : (
+          <span className="material-icons">chevron_left</span>
+        )}
       </button>
       <div className="sidebar-header">
         {!isCollapsed && <h2>Dashboards</h2>}
@@ -41,7 +45,7 @@ function DashboardSidebar({
             className="create-dashboard-btn"
             onClick={() => setIsCreating(true)}
           >
-            + Create
+            <span className="material-icons">add</span>
           </button>
         )}
       </div>
@@ -90,8 +94,9 @@ function DashboardSidebar({
                       e.stopPropagation();
                       onEditDashboard(dashboard.id, dashboard.name);
                     }}
+                    title="Edit"
                   >
-                    Edit
+                    <span className="material-icons">edit</span>
                   </button>
                   <button
                     className="delete-btn"
@@ -99,8 +104,9 @@ function DashboardSidebar({
                       e.stopPropagation();
                       onDeleteDashboard(dashboard.id);
                     }}
+                    title="Delete"
                   >
-                    Delete
+                    <span className="material-icons">delete</span>
                   </button>
                 </div>
               </div>
