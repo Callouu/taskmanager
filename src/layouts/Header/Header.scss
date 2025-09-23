@@ -111,10 +111,11 @@
     }
 
     &__nav {
+      display: none;
       position: fixed;
       top: 0;
-      right: -100%;
-      width: 70%;
+      right: 0;
+      width: 40%;
       height: 100vh;
       background: rgba(12, 12, 0.95);
       backdrop-filter: blur(10px);
@@ -122,12 +123,12 @@
       justify-content: flex-start;
       align-items: center;
       padding-top: 6rem;
-      transition: right 0.3s ease;
       gap: 2rem;
       border-left: 1px solid rgba(255, 255, 255, 0.05);
+      transition: right 0.3s ease;
 
       &--open {
-        right: 0;
+        display: flex;
       }
 
       a {
