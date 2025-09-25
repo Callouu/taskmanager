@@ -93,28 +93,30 @@ function DashboardSidebar({
                   <span className="material-icons">description</span>
                   <span className="dashboard-name">{dashboard.name}</span>
                 </div>
-                <div className="dashboard-actions">
-                  <button
-                    className="edit-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onEditDashboard(dashboard.id, dashboard.name);
-                    }}
-                    title="Edit"
-                  >
-                    <span className="material-icons">edit</span>
-                  </button>
-                  <button
-                    className="delete-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onDeleteDashboard(dashboard.id);
-                    }}
-                    title="Delete"
-                  >
-                    <span className="material-icons">close</span>
-                  </button>
-                </div>
+                {selectedDashboardId === dashboard.id && (
+                  <div className="dashboard-actions">
+                    <button
+                      className="edit-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onEditDashboard(dashboard.id, dashboard.name);
+                      }}
+                      title="Edit"
+                    >
+                      <span className="material-icons">edit</span>
+                    </button>
+                    <button
+                      className="delete-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDeleteDashboard(dashboard.id);
+                      }}
+                      title="Delete"
+                    >
+                      <span className="material-icons">close</span>
+                    </button>
+                  </div>
+                )}
               </div>
             ))}
           </div>
