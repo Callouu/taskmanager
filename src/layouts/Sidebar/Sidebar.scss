@@ -17,25 +17,35 @@
   .toggle-sidebar-btn {
     background-color: transparent;
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    // border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     padding: 6px 10px;
     cursor: pointer;
     font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-width: 30px;
+    justify-content: space-between;
+    // min-width: 30px;
     transition: all 0.2s ease;
-    align-self: flex-end;
+    // align-self: flex-end;
     margin-bottom: 16px;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .sidebar-icon {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+    .sidebar-logo {
+    height: 24px;
+  }
+
+    // &:hover {
+    //   background-color: rgba(255, 255, 255, 0.1);
+    // }
 
     .material-icons {
-      font-size: 18px;
+      font-size: 24px;
     }
   }
 
@@ -163,6 +173,7 @@
         flex: 1;
 
         .dashboard-name {
+          font-size: 14px;
           font-weight: 500;
           color: white;
         }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.scss";
+import logoWhite from '../../assets/tm_logo_white.png'
 
 function DashboardSidebar({
   dashboards,
@@ -35,7 +36,10 @@ function DashboardSidebar({
         {isCollapsed ? (
           <span className="material-icons">chevron_right</span>
         ) : (
+          <div className="sidebar-icon">
+          <img className="sidebar-logo" src={logoWhite} alt="TaskManager Logo"/>
           <span className="material-icons">chevron_left</span>
+          </div>
         )}
       </button>
       <div className="sidebar-header">

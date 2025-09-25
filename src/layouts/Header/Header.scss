@@ -20,17 +20,23 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
-    
-    a {
-      text-decoration: none;
+
+    img {
+      display: block;
+      height: 32px;
+      width: auto;
     }
     
-    span {
-      background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    // a {
+    //   text-decoration: none;
+    // }
+    
+    // span {
+    //   background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
+    //   -webkit-background-clip: text;
+    //   background-clip: text;
+    //   color: transparent;
+    // }
   }
 
   &__menu-toggle {
