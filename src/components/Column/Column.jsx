@@ -35,10 +35,12 @@ const Column = ({ column, cards }) => {
         </div>
         <div className="column-header--button">
         <div className="add-card">
-          <button onClick={() => setIsModalOpen(true)}>+</button>
+          <button onClick={() => setIsModalOpen(true)}>
+            <span className="material-icons">add</span>
+          </button>
         </div>
         <button className="delete-btn" onClick={handleDeleteColumn}>
-          ×
+          <span className="material-icons">close</span>
         </button>
         </div>
       </div>

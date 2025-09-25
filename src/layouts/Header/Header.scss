@@ -5,7 +5,6 @@
   z-index: 100;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  // position: fixed;
   top: 0;
   left: 0;
 
@@ -21,17 +20,23 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
-    
-    a {
-      text-decoration: none;
+
+    img {
+      display: block;
+      height: 32px;
+      width: auto;
     }
     
-    span {
-      background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+    // a {
+    //   text-decoration: none;
+    // }
+    
+    // span {
+    //   background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
+    //   -webkit-background-clip: text;
+    //   background-clip: text;
+    //   color: transparent;
+    // }
   }
 
   &__menu-toggle {
@@ -42,14 +47,6 @@
     height: 21px;
     cursor: pointer;
     z-index: 101;
-
-    span {
-      height: 3px;
-      width: 100%;
-      background: linear-gradient(90deg, #5c6bc0 0%, #26c6da 100%);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
   }
 
   &__nav {
@@ -111,10 +108,11 @@
     }
 
     &__nav {
+      display: none;
       position: fixed;
       top: 0;
-      right: -100%;
-      width: 70%;
+      right: 0;
+      width: 40%;
       height: 100vh;
       background: rgba(12, 12, 0.95);
       backdrop-filter: blur(10px);
@@ -122,12 +120,12 @@
       justify-content: flex-start;
       align-items: center;
       padding-top: 6rem;
-      transition: right 0.3s ease;
       gap: 2rem;
       border-left: 1px solid rgba(255, 255, 255, 0.05);
+      transition: right 0.3s ease;
 
       &--open {
-        right: 0;
+        display: flex;
       }
 
       a {
