@@ -1,99 +1,108 @@
 .dashboard-sidebar {
-  width: 250px;
-  background: rgba(255, 255, 255, 0.05);
-  border-right: 1px solid #383838;;
+  width: 260px;
+  background: #202123;
+  color: #e6e6e6;
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  box-sizing: border-box;
-  border-radius: 0px 24px 24px 0px;
+  height: 100vh;
+  border-right: 1px solid #343541;
   transition: width 0.3s ease;
 
   &.collapsed {
     width: 60px;
-    padding: 16px 8px;
-  }
-
-  .toggle-sidebar-btn {
-    background-color: transparent;
-    color: white;
-    // border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    padding: 6px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    // min-width: 30px;
-    transition: all 0.2s ease;
-    // align-self: flex-end;
-    margin-bottom: 16px;
-
-    .sidebar-icon {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .sidebar-logo {
-    height: 24px;
-  }
-
-    // &:hover {
-    //   background-color: rgba(255, 255, 255, 0.1);
-    // }
-
-    .material-icons {
-      font-size: 24px;
-    }
   }
 
   .sidebar-header {
+    padding: 12px;
+    border-bottom: 1px solid #343541;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 26px 0px;
 
-    .material-icons {
-      font-size: 20px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 18px;
-      color: white;
-    }
-
-    .create-dashboard-btn {
-      background-color: #007bff;
-      color: white;
+    .toggle-sidebar-btn {
+      background-color: transparent;
+      color: #e6e6e6;
       border: none;
-      border-radius: 8px;
-      padding: 6px 16px;
+      border-radius: 4px;
+      padding: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      transition: all 0.2s ease;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #2a2b32;
+      }
+
+      .sidebar-icon {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        .sidebar-logo {
+          height: 24px;
+        }
+
+        .sidebar-title {
+          font-size: 16px;
+          font-weight: 500;
+          color: white;
+        }
+      }
+
+      .material-icons {
+        font-size: 20px;
       }
     }
   }
 
+  .create-dashboard-btn {
+    // background-color: #343541;
+    background: transparent;
+    color: #e6e6e6;
+    // border: 1px solid #4d4d4f;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #2a2b32;
+    }
+
+    .material-icons {
+      font-size: 16px;
+    }
+  }
+
   .create-dashboard-form {
-    margin-bottom: 16px;
+    margin: 8px 12px 12px;
     padding: 12px;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #2a2b32;
+    border-radius: 6px;
+    border: 1px solid #4d4d4f;
 
     input {
       width: 100%;
-      padding: 8px;
+      padding: 8px 12px;
       margin-bottom: 8px;
-      border: 1px solid #ddd;
+      background-color: #40414f;
+      border: 1px solid #4d4d4f;
       border-radius: 4px;
+      color: white;
       box-sizing: border-box;
+
+      &::placeholder {
+        color: #8e8ea0;
+      }
     }
 
     .form-actions {
@@ -102,27 +111,28 @@
 
       button {
         flex: 1;
-        padding: 6px 12px;
-        border: none;
+        padding: 8px 12px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 14px;
 
         &:first-child {
-          background-color: #28a745;
+          background-color: #343541;
           color: white;
+          border: 1px solid #4d4d4f;
 
           &:hover {
-            background-color: #218838;
+            background-color: #2a2b32;
           }
         }
 
         &:last-child {
-          background-color: #6c757d;
+          background-color: #343541;
           color: white;
+          border: 1px solid #4d4d4f;
 
           &:hover {
-            background-color: #5a6268;
+            background-color: #2a2b32;
           }
         }
       }
@@ -132,26 +142,28 @@
   .dashboard-list {
     flex: 1;
     overflow-y: auto;
+    padding: 8px 0;
 
     .dashboard-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px;
-      margin-bottom: 8px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #383838;
-      border-radius: 4px;
+      padding: 8px 12px;
+      margin: 0 8px 4px;
+      background: transparent;
+      border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s ease;
+      border: 1px solid transparent;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.1);
+        background: #2a2b32;
+        border: 1px solid #343541;
       }
 
       &.selected {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
+        background: #343541;
+        border: 1px solid #343541;
 
         .dashboard-name {
           color: white;
@@ -159,11 +171,11 @@
 
         .dashboard-actions {
           button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            background-color: transparent;
+            color: #e6e6e6;
 
             &:hover {
-              background-color: rgba(255, 255, 255, 0.3);
+              background-color: #2a2b32;
             }
           }
         }
@@ -171,11 +183,22 @@
 
       .dashboard-info {
         flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .material-icons {
+          font-size: 16px;
+          color: #8e8ea0;
+        }
 
         .dashboard-name {
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 400;
           color: white;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 
@@ -184,23 +207,24 @@
         gap: 4px;
 
         button {
-          padding: 4px 8px;
+          padding: 4px;
           font-size: 12px;
           border: none;
           border-radius: 3px;
           cursor: pointer;
-          background-color: #f1f1f1;
-          color: #333;
+          background-color: transparent;
+          color: #8e8ea0;
           display: flex;
           align-items: center;
           justify-content: center;
 
           &:hover {
-            background-color: #e0e0e0;
+            background-color: #2a2b32;
+            color: white;
           }
 
           .material-icons {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       }

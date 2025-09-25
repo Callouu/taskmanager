@@ -32,27 +32,28 @@ function DashboardSidebar({
 
   return (
     <div className={`dashboard-sidebar ${isCollapsed ? "collapsed" : ""}`}>
-      <button className="toggle-sidebar-btn" onClick={onToggleCollapse}>
-        {isCollapsed ? (
-          <span className="material-icons">chevron_right</span>
-        ) : (
-          <div className="sidebar-icon">
-          <img className="sidebar-logo" src={logoWhite} alt="TaskManager Logo"/>
-          <span className="material-icons">chevron_left</span>
-          </div>
-        )}
-      </button>
       <div className="sidebar-header">
-        {!isCollapsed && <h2>Dashboards</h2>}
-        {!isCollapsed && (
-          <button
-            className="create-dashboard-btn"
-            onClick={() => setIsCreating(true)}
-          >
-            <span className="material-icons">add</span>
-          </button>
-        )}
+        <button className="toggle-sidebar-btn" onClick={onToggleCollapse}>
+          {isCollapsed ? (
+            <span className="material-icons">menu</span>
+          ) : (
+            <div className="sidebar-icon">
+              <img className="sidebar-logo" src={logoWhite} alt="TaskManager Logo"/>
+              <span className="sidebar-title">Dashboards</span>
+            </div>
+          )}
+        </button>
       </div>
+      
+      {!isCollapsed && (
+        <button
+          className="create-dashboard-btn"
+          onClick={() => setIsCreating(true)}
+        >
+          <span className="material-icons">add</span>
+          New dashboard
+        </button>
+      )}
 
       {!isCollapsed && (
         <>
@@ -62,7 +63,7 @@ function DashboardSidebar({
                 type="text"
                 value={newDashboardName}
                 onChange={(e) => setNewDashboardName(e.target.value)}
-                placeholder="Dashboard name"
+                placeholder="Enter dashboard name"
                 autoFocus
               />
               <div className="form-actions">
@@ -89,6 +90,7 @@ function DashboardSidebar({
                 onClick={() => handleSelectDashboard(dashboard.id)}
               >
                 <div className="dashboard-info">
+                  <span className="material-icons">description</span>
                   <span className="dashboard-name">{dashboard.name}</span>
                 </div>
                 <div className="dashboard-actions">
@@ -110,7 +112,7 @@ function DashboardSidebar({
                     }}
                     title="Delete"
                   >
-                    <span className="material-icons">delete</span>
+                    <span className="material-icons">close</span>
                   </button>
                 </div>
               </div>
