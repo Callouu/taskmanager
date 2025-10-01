@@ -1,0 +1,233 @@
+.dashboard-sidebar {
+  width: 260px;
+  background: #202123;
+  color: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  border-right: 1px solid #343541;
+  transition: width 0.3s ease;
+
+  &.collapsed {
+    width: 60px;
+  }
+
+  .sidebar-header {
+    padding: 12px;
+    border-bottom: 1px solid #343541;
+    display: flex;
+    align-items: center;
+
+    .toggle-sidebar-btn {
+      background-color: transparent;
+      color: #e6e6e6;
+      border: none;
+      border-radius: 4px;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #2a2b32;
+      }
+
+      .sidebar-icon {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        .sidebar-logo {
+          height: 24px;
+        }
+
+        .sidebar-title {
+          font-size: 16px;
+          font-weight: 500;
+          color: white;
+        }
+      }
+
+      .material-icons {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .create-dashboard-btn {
+    // background-color: #343541;
+    background: transparent;
+    color: #e6e6e6;
+    // border: 1px solid #4d4d4f;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #2a2b32;
+    }
+
+    .material-icons {
+      font-size: 16px;
+    }
+  }
+
+  .create-dashboard-form {
+    margin: 8px 12px 12px;
+    padding: 12px;
+    background-color: #2a2b32;
+    border-radius: 6px;
+    border: 1px solid #4d4d4f;
+
+    input {
+      width: 100%;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      background-color: #40414f;
+      border: 1px solid #4d4d4f;
+      border-radius: 4px;
+      color: white;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: #8e8ea0;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 8px;
+
+      button {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:first-child {
+          background-color: #343541;
+          color: white;
+          border: 1px solid #4d4d4f;
+
+          &:hover {
+            background-color: #2a2b32;
+          }
+        }
+
+        &:last-child {
+          background-color: #343541;
+          color: white;
+          border: 1px solid #4d4d4f;
+
+          &:hover {
+            background-color: #2a2b32;
+          }
+        }
+      }
+    }
+  }
+
+  .dashboard-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+
+    .dashboard-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      margin: 0 8px 4px;
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+
+      &:hover {
+        background: #2a2b32;
+        border: 1px solid #343541;
+      }
+
+      &.selected {
+        background: #343541;
+        border: 1px solid #343541;
+
+        .dashboard-name {
+          color: white;
+        }
+
+        .dashboard-actions {
+          button {
+            background-color: transparent;
+            color: #e6e6e6;
+
+            &:hover {
+              background-color: #2a2b32;
+            }
+          }
+        }
+      }
+
+      .dashboard-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .material-icons {
+          font-size: 16px;
+          color: #8e8ea0;
+        }
+
+        .dashboard-name {
+          font-size: 14px;
+          font-weight: 400;
+          color: white;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .dashboard-actions {
+        display: flex;
+        gap: 4px;
+
+        button {
+          padding: 4px;
+          font-size: 12px;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+          background-color: transparent;
+          color: #8e8ea0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: #2a2b32;
+            color: white;
+          }
+
+          .material-icons {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
