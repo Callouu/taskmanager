@@ -32,6 +32,22 @@
   }
 }
 
+.column-title {
+  display: flex;
+  gap: 8px;
+}
+
+.column-description {
+  width: 100%;
+  margin-bottom: 12px;
+  min-height: 60px;
+}
+
+.column-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .add-column {
   margin: 24px;
  width: auto;

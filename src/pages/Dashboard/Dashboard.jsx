@@ -140,18 +140,18 @@ function Dashboard() {
           <h2>Add a column</h2>
           <input
             type="text"
+            className="column-title"
             value={newColumnTitle}
             onChange={(e) => setNewColumnTitle(e.target.value)}
             placeholder="Column title"
-            style={{ width: "100%", marginBottom: 12 }}
           />
           <textarea
+            className="column-description"
             value={newColumnDesc}
             onChange={(e) => setNewColumnDesc(e.target.value)}
             placeholder="Description (optional)"
-            style={{ width: "100%", marginBottom: 12, minHeight: 60 }}
           />
-          <div style={{ display: "flex", gap: 8 }}>
+          <div className="column-actions">
             <button onClick={handleAddColumn}>Add</button>
             <button onClick={() => setModalOpen(false)} type="button">Cancel</button>
           </div>
